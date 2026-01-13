@@ -10,12 +10,15 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-
-
 const app = express();
 
+// Aquí es donde agregué tu link de Vercel para darte permiso de acceso
 app.use(cors({
-  origin: ["http://localhost:4200", "http://127.0.0.1:4200"],
+  origin: [
+    "http://localhost:4200", 
+    "http://127.0.0.1:4200",
+    "https://crm-frontend-peach-psi.vercel.app"
+  ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
@@ -46,6 +49,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(distPath, "index.html"));
 });
 */
+
 app.get("/", (req, res) => {
   res.send("🚀 API de CRM funcionando correctamente");
 });
