@@ -38,12 +38,16 @@ app.use("/api/tareas", tareaRoutes);
 app.use("/api/usuarios", usuarioRoutes);
 app.use("/api/ventas", ventaRoutes);
 
-// Servir Angular
+/* Servir Angular
 const distPath = path.join(__dirname, "../crm-frontend/dist/crm-frontend");
 app.use(express.static(distPath));
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(distPath, "index.html"));
+});
+*/
+app.get("/", (req, res) => {
+  res.send("🚀 API de CRM funcionando correctamente");
 });
 
 const PORT = process.env.PORT || 5000;
